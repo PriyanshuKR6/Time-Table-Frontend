@@ -6,10 +6,13 @@ body {
   font-family: Verdana, sans-serif;
   margin: 15px 20px;
   padding: 10px;
-  background-color: rgb(179, 178, 178);
+  background-color: rgb(211, 211, 211);
 }
 
-.container {
+/* Login and Signup form container*/
+
+.log-in-container,
+.sign-up-container {
   padding: 20px 30px;
   margin-top: 25vh;
   margin-left: 20vw;
@@ -17,47 +20,46 @@ body {
   width: 50vw;
   border: 1px solid grey;
   border-radius: 5px;
+  font-size: 1.3rem;
 }
 
-div.container>h2 {
+div.log-in-container,
+.sign-up-container>h2 {
   text-align: center;
 }
 
-.sign-up {
+.sign-up-form,
+.log-in-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
-.log-in {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+.log-in-form {
+  margin: 10px 10px;
 }
 
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 25vw;
+  width: 20vw;
   padding: 12px;
-  /* margin: px; */
+  margin: auto;
   border: 1px solid grey;
   border-radius: 5px;
 }
 
-input[type="text"],
+.sign-up-form input[type="text"],
 input[type="email"] {
-  margin-left: 27px;
+  margin-left: 40px;
 }
 
 
 input[type="submit"] {
   background-color: rgb(148, 243, 40);
-  margin: 10px;
-  margin-left: 13rem;
+  margin: 1rem;
   padding: 10px;
   border: none;
   border-radius: 8px;
@@ -74,10 +76,102 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-h4>a:visited, a:link{
+h4>a:visited,
+a:link {
   color: inherit;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
+}
+
+/* Table styling */
+
+.time-table {
+  border: 1px solid black;
+  background-color: azure;
+  margin-top: 15vh;
+  margin-left: 30vw;
+  font-size: 1.1rem;
+  border-collapse: collapse;
+  height: 60vh;
+  /* width: 25vw; */
+}
+
+tr.week-days>th {
+  padding: 0.8rem;
+  border: 1px solid black;
+}
+
+/* Diagonal cell styling under table */
+.diagonal {
+  position: relative;
+  height: 25%;
+  width: 25%;
+  font-size: 1.2rem;
+  top: 0;
+  left: 0;
+}
+
+.top {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 1px;
+  left: 3px;
+}
+
+.line {
+  width: 152px;
+  height: 0px;
+  border-bottom: 1px solid black;
+  transform: translateY(0px) translateX(-18px) rotate(19deg);
+  position: absolute;
+}
+
+/* Table data Stylings */
+
+.table-body {
+  border: 1px solid black;
+}
+
+.table-entry {
+  padding: 0px 0.75rem;
+  margin: 3px;
+  border: 1px solid black;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.table-entry,
+.period {
+  border-collapse: collapse;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.period {
+  border-right: 1px solid black;
+}
+
+/* small text size for BREAK */
+.lunch {
+  font-size: 1rem;
+}
+
+/* Table cell links normalization */
+
+td>a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+td>a:hover {
+  transform: scale(1.01, 1.01);
 }
