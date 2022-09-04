@@ -9,7 +9,7 @@ body {
   background-color: rgb(211, 211, 211);
 }
 
-/* Login and Signup form container*/
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Login and Signup form container - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 .log-in-container,
 .sign-up-container {
@@ -86,7 +86,54 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Table styling */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - HOMEPAGE Styling - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*- - - - - - - - - - - - - - ADD section - - - - - - - - - - - - - - - - - - - - */
+
+.add-section {
+  height: 80%;
+  width: 15vw;
+  border: 2px solid grey;
+  border-radius: 8px;
+  position: fixed;
+  z-index: 1;
+  margin-left: 5px;
+  top: 10%;
+  left: 0;
+  background-color: rgb(235, 235, 235);
+}
+
+/*- - - - - - - - - - - - - - ADD BUTTON styling - - - - - - - - - - - - - - - - - - - - - */
+
+.add-btn {
+  margin-top: 10vh;
+  margin-left: 2vw;
+  width: 50%;
+  border: 0.2rem solid rgb(255, 255, 234);
+  box-shadow: 8px 6px 6px 6px rgb(255, 240, 199);
+  border-radius: 12px;
+  color: burlywood;
+}
+
+.add-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.add-btn:active {
+  transform: translateY(6px);
+}
+
+.add-btn-text {
+  font-size: 1rem;
+}
+
+/*- - - - - - - - - - - - - - Main container - - - - - - - - - - - - - - - - - - */
+
+
+
+
+/*- - - - - - - - - - - - - - Table styling - - - - - - - - - - - - - - - - - - */
+
 
 .time-table {
   border: 1px solid black;
@@ -96,7 +143,6 @@ a:hover {
   font-size: 1.1rem;
   border-collapse: collapse;
   height: 60vh;
-  /* width: 25vw; */
 }
 
 tr.week-days>th {
@@ -104,7 +150,8 @@ tr.week-days>th {
   border: 1px solid black;
 }
 
-/* Diagonal cell styling under table */
+/*- - - - - - - - - - - - - - Diagonal cell styling under table - - - - - - - - - - - */
+
 .diagonal {
   position: relative;
   height: 25%;
@@ -127,14 +174,16 @@ tr.week-days>th {
 }
 
 .line {
-  width: 152px;
+  width: 160px;
   height: 0px;
   border-bottom: 1px solid black;
-  transform: translateY(0px) translateX(-18px) rotate(19deg);
+  transform: translateY(-1px) translateX(-17px) rotate(17deg);
   position: absolute;
 }
 
-/* Table data Stylings */
+
+/*- - - - - - - - - - - - - - Table data Stylings - - - - - - - - - - - - - - - - - - */
+
 
 .table-body {
   border: 1px solid black;
@@ -159,12 +208,15 @@ tr.week-days>th {
   border-right: 1px solid black;
 }
 
-/* small text size for BREAK */
+
+/*- - - - - - - - - - - - - - small text size for BREAK PERIOD - - - - - - - - - - - - */
+
 .lunch {
   font-size: 1rem;
 }
 
-/* Table cell links normalization */
+/*- - - - - - - - - - - - - - Table cell links normalization - - - - - - - - - - - - */
+
 
 td>a:link,
 a:visited {

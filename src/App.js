@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from './Login';
-import { Register } from './Regsiter';
-import { Table } from './Table';
-
+import { Login } from './modules/user/pages/Login';
+import { Register } from './modules/user/pages/Register';
+import { Table } from './shared/widgets/Table';
+import { Homepage } from './shared/widgets/Homepage';
 function App() {
   return (<>
     {/* <BrowserRouter>
@@ -14,7 +14,8 @@ function App() {
         <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter> */}
-    <Table/>
+    {/* <Table/> */}
+    <Homepage/>
   </>
   );
 }
