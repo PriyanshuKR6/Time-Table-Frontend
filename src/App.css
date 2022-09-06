@@ -43,7 +43,8 @@ div.log-in-container,
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
   width: 20vw;
   padding: 12px;
   margin: auto;
@@ -57,7 +58,7 @@ input[type="email"] {
 }
 
 
-input[type="submit"] {
+.btn, input[type="submit"] {
   background-color: rgb(148, 243, 40);
   margin: 1rem;
   padding: 10px;
@@ -70,7 +71,7 @@ input[type="submit"] {
   height: 1.8rem;
 }
 
-input[type="submit"]:hover {
+.btn:hover, input[type="submit"]:hover {
   background-color: rgb(0, 255, 0);
   transform: scale(1.05, 1.05);
   cursor: pointer;
@@ -130,24 +131,68 @@ a:hover {
 /*- - - - - - - - - - - - - - Main container - - - - - - - - - - - - - - - - - - */
 
 
+.main-content {
+  width: 70vw;
+  height: 80vh;
+  margin-top: 7.5vh;
+  margin-left: 15vw;
+  border: 1px solid grey;
+  border-radius: 8px;
+  box-shadow: 8px 6px 4px 4px darkgray;
+  position: relative;
+}
 
+/*- - - - - - - - - - - - - - TABS content styling  - - - - - - - - - - - - - - - - - - */
+
+.input-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30vw;
+  margin-top: 15vh;
+  padding: 1rem;
+  width: 30vw;
+  height: 50vh;
+  border: 2px solid grey;
+  border-radius: 12px;
+  box-shadow: 8px 6px 4px 4px darkgray;
+}
+
+.input-field-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-input-fields {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.tab-input-fields p {
+  font-size: 1.2rem;
+}
 
 /*- - - - - - - - - - - - - - Table styling - - - - - - - - - - - - - - - - - - */
 
 
 .time-table {
-  border: 1px solid black;
-  background-color: azure;
-  margin-top: 15vh;
-  margin-left: 30vw;
+  border: 1px solid grey;
+  /* border-radius: 10px; */
+  background-color: rgba(252, 239, 204, 0.493);
+  margin: 0.2rem;
   font-size: 1.1rem;
   border-collapse: collapse;
-  height: 60vh;
+  height: 79vh;
+  width: 69.5vw;
+  position: absolute;
 }
 
 tr.week-days>th {
   padding: 0.8rem;
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 
 /*- - - - - - - - - - - - - - Diagonal cell styling under table - - - - - - - - - - - */
@@ -156,28 +201,29 @@ tr.week-days>th {
   position: relative;
   height: 25%;
   width: 25%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
   top: 0;
   left: 0;
 }
 
 .top {
   position: absolute;
-  top: 1px;
-  right: 3px;
+  top: 2px;
+  right: 2rem;
 }
 
 .bottom {
   position: absolute;
-  bottom: 1px;
-  left: 3px;
+  bottom: 2px;
+  left: 2rem;
 }
 
 .line {
-  width: 160px;
+  width: 21.1rem;
   height: 0px;
-  border-bottom: 1px solid black;
-  transform: translateY(-1px) translateX(-17px) rotate(17deg);
+  border-bottom: 1px solid grey;
+  transform: translateY(-1px) translateX(-16px) rotate(8deg);
   position: absolute;
 }
 
@@ -186,26 +232,30 @@ tr.week-days>th {
 
 
 .table-body {
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 
 .table-entry {
-  padding: 0px 0.75rem;
-  margin: 3px;
-  border: 1px solid black;
-  border-left: 3px solid black;
-  border-bottom: 3px solid black;
+  text-align: center;
+  padding: 0px 1.5rem;
+  width: 3rem;
+  font-size: 2rem;
+  border: 1px solid grey;
+  border-left: 2px solid rgb(77, 77, 77);
+  border-bottom: 2px solid rgb(77, 77, 77);
 }
 
-.table-entry,
-.period {
-  border-collapse: collapse;
-  align-items: flex-end;
-  justify-content: center;
+.table-entry:hover {
+  background-color: rgb(252, 217, 128);
+}
+
+.week-day-name {
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .period {
-  border-right: 1px solid black;
+  border-right: 1px solid grey;
 }
 
 
@@ -213,6 +263,11 @@ tr.week-days>th {
 
 .lunch {
   font-size: 1rem;
+}
+
+.break {
+  border-bottom: 2px solid rgb(77, 77, 77);
+  border-left: 2px solid rgb(77, 77, 77);
 }
 
 /*- - - - - - - - - - - - - - Table cell links normalization - - - - - - - - - - - - */
@@ -225,5 +280,5 @@ a:visited {
 }
 
 td>a:hover {
-  transform: scale(1.01, 1.01);
+  background-color: rgb(252, 217, 128);
 }

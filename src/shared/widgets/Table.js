@@ -2,6 +2,7 @@
 import { TableBody } from "./TableBody"
 
 export const Table = () => {
+    const Periods = 8;
     const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return (<>
         <div>
@@ -19,7 +20,7 @@ export const Table = () => {
                         <th>2</th>
                         <th>3</th>
                         <th>4</th>
-                        <th rowSpan="8" className="lunch">Break</th>
+                        <th rowSpan={Periods} className="lunch">Break</th>
                         <th>5</th>
                         <th>6</th>
                         <th>7</th>
@@ -27,7 +28,7 @@ export const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <TableBody day={"Moneday"} />
+                    <TableBody day={"Monday"} />
                     <TableBody day={"Tuesday"} />
                     <TableBody day={"Wednesday"} />
                     <TableBody day={"Thursday"} />

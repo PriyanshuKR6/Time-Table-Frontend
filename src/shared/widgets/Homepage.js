@@ -1,12 +1,14 @@
-import { Building_Adder } from "../../modules/builidng/components/Building_Adder.js"
+import { BuildingAdder } from "../../modules/builidng/components/BuildingAdder.js"
+import { Table } from "./Table.js"
 
 export const Homepage = () => {
     return(<>
-        <aside className="add-section">
-        <Building_Adder/>
-        </aside>
+        {/* <aside className="add-section">
+        <BuildingAdder/>
+        </aside> */}
+        
         <div className="main-content">
-            
+            <Table/>
         </div>
     </>)
 }
