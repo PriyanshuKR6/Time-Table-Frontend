@@ -14,7 +14,7 @@ export const Class = () => {
     const onClickAdd = () => {
         console.log("Add running")
         API_CLIENT.post("/login",
-        {userid:nameValue,password:strValue}
+        {userid:nameValue,strength:strValue}
         ).then(res=>{
             console.log(res.data);
         }).catch(err=>{
@@ -26,7 +26,7 @@ export const Class = () => {
         console.log("Delete running")
     }
 
-    const parameters = [{ text: "name", type: "text", handler: setNameValue }, { text: "capacity", type: "number", handler: setStrValue }];//entries
+    const parameters = [{ text: "name", type: "text", handler: setNameValue }, { text: "strength", type: "number", handler: setStrValue }];//entries
     return (<>
         <BasicPage
             name="Class"

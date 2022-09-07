@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
 
@@ -16,27 +16,25 @@ export const Login = () => {
                 setState(state + 1);
             }
     }
-    // const uid = useRef('');
-    // uid.current = "amit";
-    // const pwd = useRef('');
-    // pwd.current = "amit";
-    const [message, setMessage] = useState('');
-
+    const navigate = useNavigate();
     const doLogin = async () => {
         console.log('Userid ', idValue.current, "Password ", pwdValue.current);
-        const result = await API_CLIENT.post(process.env.REACT_APP_LOGIN, {
-            'userid': idValue.current,
-            'password': pwdValue.current
-        });
-        setMessage(result.data.message);
-        console.log(message);
+        navigate('/dashboard');
+        // const result = await API_CLIENT.post(process.env.REACT_APP_API, {
+        //     'userid': idValue.current,
+        //     'password': pwdValue.current
+        // }).then((res)=>{
+        // });
+        // <Link to="/dashboard"></Link>
+        // setMessage(result.data.message);
+        // console.log(message);
     }
     return (<>
         <div className="log-in-container">
             <h2>Login</h2>
             <section className="log-in">
-                <form className="log-in-form">
-                    <div><p>Username or email </p><input type="text"value={idValue.current} placeholder="Enter username or email" onChange={handleChange} required /></div>
+                <form onSubmit={(e) => { e.preventDefault() }} className="log-in-form">
+                    <div><p>Username or email </p><input type="text" value={idValue.current} placeholder="Enter username or email" onChange={handleChange} required /></div>
                     <div><p>Password </p><input type="password" value={pwdValue.current} placeholder="Enter your password" onChange={handleChange} required /></div>
                     <input type="submit" value="Login" onClick={doLogin} />
                     <h4>Don't have an account ? <Link to="/Register"><em>Register</em></Link></h4>

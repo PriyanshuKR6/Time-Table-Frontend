@@ -4,7 +4,7 @@
 // import Button from '@mui/material/Button';
 import './App.css';
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Login } from './modules/user/pages/Login';
+import { Login } from './modules/user/pages/Login';
 // import { Register } from './modules/user/pages/Register';
 // import { Table } from './shared/widgets/Table';
 // import { Homepage } from './shared/widgets/Homepage';
@@ -49,7 +49,8 @@ import './App.css';
 import { CssVarsProvider } from '@mui/joy/styles';
 import Button from '@mui/joy/Button';
 import { DashBoard } from './modules/user/pages/Dashboard';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab from '@mui/joy/Tab';
@@ -58,10 +59,12 @@ import TabsVariants from './test';
 function App() {
   return (
     <BrowserRouter>
-    {/* <CssVarsProvider> */}
-    {/* <TabsVariants/> */}
-    <DashBoard/>
-    {/* </CssVarsProvider> */}
+      <Routes>
+        
+        <Route path='/dashboard' element={<DashBoard/>}/>   
+        <Route path='/' element={<Login/>}/>
+        <Route path='/login' element={<Login/>}/>
+      </Routes>
     </BrowserRouter>
   );
 }

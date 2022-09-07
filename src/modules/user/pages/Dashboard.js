@@ -20,7 +20,7 @@ export const DashBoard = () => {
             <Navbar category={category} />
             {/* <hr /> */}
             <Routes>
-                <Route path="/" element={<Login />} />
+                <Route path="/" element={<Class />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/class" element={<Class/>} />

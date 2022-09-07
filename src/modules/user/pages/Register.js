@@ -38,7 +38,7 @@ export const Register = () => {
         <div className="sign-up-container">
             <h2>Register</h2>
             <section className="sign-up">
-                <form className="sign-up-form">
+                <form onSubmit={(e) => { e.preventDefault() }} className="sign-up-form">
                     <p>Name <input type="text" value={nameValue.current} placeholder="Enter your name" onChange={handleChange} required /></p>
                     <p>Email <input type="email" value={emailValue.current} placeholder="Enter your email address" onChange={handleChange} required /></p>
                     <p>Password <input type="password" value={pwdValue.current} placeholder="Choose your password" onChange={handleChange} required /></p>
