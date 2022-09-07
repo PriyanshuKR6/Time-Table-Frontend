@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
 
@@ -26,13 +26,17 @@ export const Register = () => {
 
     const doRegister = async () => {
         console.log('Username ', nameValue.current,"email", emailValue.current, "Password ", pwdValue.current);
-        const result = await API_CLIENT.post(process.env.REACT_APP_REGISTER, {
-            'username': nameValue.current,
-            'email': emailValue.current,
-            'password': pwdValue.current
-        });
-        setMessage(result.data.message);
-        console.log(message);
+       
+        const navigate = useNavigate; 
+        navigate('/dashboard');
+
+        // const result = await API_CLIENT.post(process.env.REACT_APP_REGISTER, {
+        //     'username': nameValue.current,
+        //     'email': emailValue.current,
+        //     'password': pwdValue.current
+        // });
+        // setMessage(result.data.message);
+        // console.log(message);
     }
     return (<>
         <div className="sign-up-container">

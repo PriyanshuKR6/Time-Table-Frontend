@@ -7,10 +7,6 @@ import { Room } from "../../rooms/Room";
 import { Teacher } from "../../teacher/Teacher";
 import { Subject } from "../../subject/Subject";
 export const DashBoard = () => {
-    // const [category, setCategory] = useState([]);
-    // const getMenuData = () => {
-    //     Category=menus;
-    // }
     const category = [{ name: "Class", url: "/class" },
     { name: "Room", url: "/room" },
     { name: "Teacher", url: "/teacher" },
@@ -18,17 +14,16 @@ export const DashBoard = () => {
     return (
         <>
             <Navbar category={category} />
-            {/* <hr /> */}
+            <hr />
             <Routes>
                 <Route path="/" element={<Class />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/class" element={<Class/>} />
+                {/* <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} /> */}
+                <Route path="/class" element={<Class />} />
                 <Route path="/room" element={<Room />} />
                 <Route path="/teacher" element={<Teacher />} />
                 <Route path="/subject" element={<Subject />} />
             </Routes>
-            {/* <InputField/> */}
         </>
     )
 }

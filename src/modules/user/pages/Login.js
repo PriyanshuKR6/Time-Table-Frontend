@@ -1,6 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Route, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
+import { DashBoard } from "./Dashboard";
 
 export const Login = () => {
     const idValue = useRef("")
@@ -19,13 +20,14 @@ export const Login = () => {
     const navigate = useNavigate();
     const doLogin = async () => {
         console.log('Userid ', idValue.current, "Password ", pwdValue.current);
-        navigate('/dashboard');
+        // navigate('/dashboard');
         // const result = await API_CLIENT.post(process.env.REACT_APP_API, {
         //     'userid': idValue.current,
         //     'password': pwdValue.current
         // }).then((res)=>{
         // });
         // <Link to="/dashboard"></Link>
+        // <Route path="/dashboard/*" element={DashBoard}/>
         // setMessage(result.data.message);
         // console.log(message);
     }
@@ -37,7 +39,7 @@ export const Login = () => {
                     <div><p>Username or email </p><input type="text" value={idValue.current} placeholder="Enter username or email" onChange={handleChange} required /></div>
                     <div><p>Password </p><input type="password" value={pwdValue.current} placeholder="Enter your password" onChange={handleChange} required /></div>
                     <input type="submit" value="Login" onClick={doLogin} />
-                    <h4>Don't have an account ? <Link to="/Register"><em>Register</em></Link></h4>
+                    <h4>Don't have an account ? <Link to="/register"><em>Register</em></Link></h4>
                 </form>
             </section>
         </div>

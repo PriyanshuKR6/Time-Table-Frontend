@@ -5,7 +5,10 @@ import { useState, useEffect } from "react";
 
 export const Subject = () => {
     const [nameValue, setNameValue] = useState("");
-    const [tags, setTags] = useState("")
+    const [teacher, setTeacher] = useState("");
+    const [classes, setClasses] = useState("");
+    const [tags, setTags] = useState("");
+    const [cycle, setCycle] = useState("");
     useEffect(() => {
         console.log(nameValue, tags);
     });
@@ -26,7 +29,11 @@ export const Subject = () => {
 
 
 
-    const parameters = [{ text: "name", type: "text", handler: setNameValue }, { text: "tags", type: "text", handler: setTags }];//entries
+    const parameters = [{ text: "name", type: "text", handler: setNameValue },
+    { text: "teacher", type: "text", handler: setTags },
+    { text: "class", type: "text", handler:setClasses},
+    { text: "tags", type: "text" ,handler:setTags},
+    { text: "cycle", type: "text",handler:setCycle }];//entries
     return (<>
         <BasicPage
             name="Subject"

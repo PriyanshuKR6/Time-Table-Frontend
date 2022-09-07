@@ -28,17 +28,17 @@ export const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <TableBody day={"Monday"} />
+                    <TableBody day={"Monday"} />
                     <TableBody day={"Tuesday"} />
                     <TableBody day={"Wednesday"} />
                     <TableBody day={"Thursday"} />
                     <TableBody day={"Friday"} />
-                    <TableBody day={"Saturday"} /> */}
+                    <TableBody day={"Saturday"} />
 
-                    {week.map((weekday, index) => {
+                    {/* {week.map((weekday, index) => {
                         const index = {index};
                         <TableBody key = {index} day={weekday}/>
-                    }) }
+                    }) } */}
                 </tbody>
             </table>
         </div>
