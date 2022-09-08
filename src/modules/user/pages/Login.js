@@ -1,12 +1,19 @@
-import { Link, Route, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
-import { DashBoard } from "./Dashboard";
+import { API } from "../../../config/app-constants";
+import { Token } from "../../../shared/services/Token";
 
-export const Login = () => {
+
+export const Login = (props, { setToken }) => {
     const idValue = useRef("")
     const pwdValue = useRef("")
     const [state, setState] = useState("")
+    const [flag, setFlag] = useState(false);
+    const [message, setMessage] = useState('');
+
+
+
     const handleChange = (e) => {
         if (e.target.type === "text") {
             idValue.current = e.target.value;
@@ -19,19 +26,22 @@ export const Login = () => {
     }
     const navigate = useNavigate();
     const doLogin = async () => {
-        console.log('Userid ', idValue.current, "Password ", pwdValue.current);
-        // navigate('/dashboard');
-        // const result = await API_CLIENT.post(process.env.REACT_APP_API, {
-        //     'userid': idValue.current,
-        //     'password': pwdValue.current
-        // }).then((res)=>{
-        // });
-        // <Link to="/dashboard"></Link>
-        // <Route path="/dashboard/*" element={DashBoard}/>
-        // setMessage(result.data.message);
-        // console.log(message);
+        console.log("Login Running");
+        const result = await API_CLIENT.post(API.USER.LOGIN, {
+            'userid': idValue.current,
+            'password': pwdValue.current
+        }).then((res) => {
+            setFlag(true);
+            Token.setToken(res.userid);
+            console.log(result.data.message);
+            console.log(flag);
+        }).catch((err) => {
+            console.log(err);
+        })
+
     }
     return (<>
+        {flag ? <Navigate to="/dashboard" replace /> : null}
         <div className="log-in-container">
             <h2>Login</h2>
             <section className="log-in">

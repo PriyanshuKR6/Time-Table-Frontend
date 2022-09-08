@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
+import { API } from "../../../config/app-constants";
 
 export const Register = () => {
     const nameValue = useRef("")
@@ -25,18 +26,15 @@ export const Register = () => {
     const [message, setMessage] = useState('');
 
     const doRegister = async () => {
-        console.log('Username ', nameValue.current,"email", emailValue.current, "Password ", pwdValue.current);
-       
-        const navigate = useNavigate; 
+        console.log("Register Running");
+        const result = await API_CLIENT.post(API.USER.REGISTER, {
+            'username': nameValue.current,
+            'password': pwdValue.current
+        });
+        const navigate = useNavigate;
         navigate('/dashboard');
-
-        // const result = await API_CLIENT.post(process.env.REACT_APP_REGISTER, {
-        //     'username': nameValue.current,
-        //     'email': emailValue.current,
-        //     'password': pwdValue.current
-        // });
-        // setMessage(result.data.message);
-        // console.log(message);
+        setMessage(result.data.message);
+        console.log(message);
     }
     return (<>
         <div className="sign-up-container">
@@ -44,9 +42,8 @@ export const Register = () => {
             <section className="sign-up">
                 <form onSubmit={(e) => { e.preventDefault() }} className="sign-up-form">
                     <p>Name <input type="text" value={nameValue.current} placeholder="Enter your name" onChange={handleChange} required /></p>
-                    <p>Email <input type="email" value={emailValue.current} placeholder="Enter your email address" onChange={handleChange} required /></p>
                     <p>Password <input type="password" value={pwdValue.current} placeholder="Choose your password" onChange={handleChange} required /></p>
-                    <input type="submit" value="Regsiter" onClick={doRegister}/>
+                    <input type="submit" value="Regsiter" onClick={doRegister} />
                     <h4>Already have an account ? <Link to="/Login"><em>Login</em></Link></h4>
                 </form>
             </section>

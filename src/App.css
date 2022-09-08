@@ -180,9 +180,10 @@ a:hover {
 
 .time-table {
   border: 1px solid grey;
-  /* border-radius: 10px; */
   background-color: rgba(252, 239, 204, 0.493);
-  margin: 0.2rem;
+  box-shadow: 8px 6px 4px 4px darkgray;
+  margin: 2rem;
+  margin-left: 12rem;
   font-size: 1.1rem;
   border-collapse: collapse;
   height: 79vh;
@@ -193,38 +194,6 @@ a:hover {
 tr.week-days>th {
   padding: 0.8rem;
   border: 1px solid grey;
-}
-
-/*- - - - - - - - - - - - - - Diagonal cell styling under table - - - - - - - - - - - */
-
-.diagonal {
-  position: relative;
-  height: 25%;
-  width: 25%;
-  font-size: 1.3rem;
-  font-weight: 500;
-  top: 0;
-  left: 0;
-}
-
-.top {
-  position: absolute;
-  top: 2px;
-  right: 2rem;
-}
-
-.bottom {
-  position: absolute;
-  bottom: 2px;
-  left: 2rem;
-}
-
-.line {
-  width: 21.1rem;
-  height: 0px;
-  border-bottom: 1px solid grey;
-  transform: translateY(-1px) translateX(-16px) rotate(8deg);
-  position: absolute;
 }
 
 
@@ -242,20 +211,12 @@ tr.week-days>th {
   font-size: 2rem;
   border: 1px solid grey;
   border-left: 2px solid rgb(77, 77, 77);
+  border-top: 2px solid rgb(77, 77, 77);
   border-bottom: 2px solid rgb(77, 77, 77);
 }
 
 .table-entry:hover {
   background-color: rgb(252, 217, 128);
-}
-
-.week-day-name {
-  font-size: 1.7rem;
-  font-weight: 500;
-}
-
-.period {
-  border-right: 1px solid grey;
 }
 
 
@@ -270,15 +231,5 @@ tr.week-days>th {
   border-left: 2px solid rgb(77, 77, 77);
 }
 
-/*- - - - - - - - - - - - - - Table cell links normalization - - - - - - - - - - - - */
 
 
-td>a:link,
-a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-td>a:hover {
-  background-color: rgb(252, 217, 128);
-}

@@ -1,29 +1,17 @@
 import { Navbar } from "../../../shared/widgets/Navbar"
-import { Routes, Route } from 'react-router-dom';
-import { Login } from "./Login";
-import { Register } from "./Register";
-import { Class } from "../../classes/Class";
-import { Room } from "../../rooms/Room";
-import { Teacher } from "../../teacher/Teacher";
-import { Subject } from "../../subject/Subject";
+import { Outlet } from 'react-router-dom';
+
 export const DashBoard = () => {
-    const category = [{ name: "Class", url: "/class" },
-    { name: "Room", url: "/room" },
-    { name: "Teacher", url: "/teacher" },
-    { name: "Subject", url: "/subject" }];
+    const category = [{ name: "Class", url: "/dashboard/class" },
+    { name: "Room", url: "/dashboard/room" },
+    { name: "Teacher", url: "/dashboard/teacher" },
+    { name: "Subject", url: "/dashboard/subject" },
+    { name: "Table", url: "/dashboard/table" }];
     return (
         <>
             <Navbar category={category} />
             <hr />
-            <Routes>
-                <Route path="/" element={<Class />} />
-                {/* <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} /> */}
-                <Route path="/class" element={<Class />} />
-                <Route path="/room" element={<Room />} />
-                <Route path="/teacher" element={<Teacher />} />
-                <Route path="/subject" element={<Subject />} />
-            </Routes>
+            <Outlet />
         </>
     )
 }

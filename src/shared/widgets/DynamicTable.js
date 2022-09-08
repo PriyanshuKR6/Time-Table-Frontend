@@ -1,7 +1,17 @@
 
-export const DynamicTable = (props) => {
+const data = [
+    { "fruit": "Apple", "cost": 100 },
+    { "fruit": "Orange", "cost": 50 },
+    { "fruit": "Banana", "cost": 35 },
+    { "fruit": "Mango", "cost": 70 },
+    { "fruit": "Pineapple", "cost": 45 },
+    { "fruit": "Papaya", "cost": 40 },
+    { "fruit": "Watermelon", "cost": 35 }
+]
+
+export const DynamicTable = () => {
     const getKeys = () => {
-        return Object.keys(props.data[0]);
+        return Object.keys(data[0]);
     }
 
     const getHeader = () => {
@@ -14,9 +24,8 @@ export const DynamicTable = (props) => {
     }
 
     const getRowsData = () => {
-        const items = props.data;
         const keys = getKeys();
-        return items.map((row, index) => {
+        return data.map((row, index) => {
             return <tr key={index}><RenderRow key={index} data={row} keys={keys} /></tr>
         })
     }
@@ -32,7 +41,7 @@ export const DynamicTable = (props) => {
                     {getHeader()}
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="table-body">
                 {getRowsData()}
             </tbody>
         </table>

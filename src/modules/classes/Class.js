@@ -1,39 +1,49 @@
 import { BasicPage } from "../utils/BasicPage";
-
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { API_CLIENT } from "../../shared/services/api_client";
-import api from "../../shared/services/api";
+import { API } from "../../config/app-constants";
+import { Token } from "../../shared/services/Token";
 
 export const Class = () => {
     const [nameValue, setNameValue] = useState("");
     const [strValue, setStrValue] = useState("");
-    // const [state, setState] = useState("");
-    useEffect(() => {
-        console.log(nameValue, strValue);
-    });
-    const onClickAdd = () => {
-        console.log("Add running")
-        API_CLIENT.post("/login",
-        {userid:nameValue,strength:strValue}
-        ).then(res=>{
+    const [message, setMessage] = useState("");
+    const onClickAdd = async () => {
+        console.log("Add running");
+        const result = await API_CLIENT.post(API.CLASS.ADD, {
+            'name':  nameValue,
+            'userid': Token.getToken(),
+            'strength':  strValue 
+
+        }).then(res => {
             console.log(res.data);
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err);
         })
+        setMessage(result.data.message);
+        console.log(message);
+
     }
-    const onClickDelete = () => {
-        
+    const onClickDelete = async () => {
+
         console.log("Delete running")
+        const result = await API_CLIENT.post(API.CLASS.DELETE, {
+            'name':  nameValue ,
+            'userid': Token.getToken(),
+            'strength':  strValue 
+        })
+        setMessage(result.data.message);
+        console.log(message);
     }
 
-    const parameters = [{ text: "name", type: "text", handler: setNameValue }, { text: "strength", type: "number", handler: setStrValue }];//entries
+    const parameters = [{ text: "name", type: "text", handler: setNameValue },
+    { text: "strength", type: "number", handler: setStrValue }];//entries
     return (<>
         <BasicPage
             name="Class"
             entry={parameters}
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
-        // onChange={handleChange}
         />
     </>);
 }

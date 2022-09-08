@@ -1,39 +1,54 @@
 import { BasicPage } from "../utils/BasicPage";
 import { API_CLIENT } from "../../shared/services/api_client";
-
+import { Token } from '../../shared/services/Token'
 import { useState, useEffect } from "react";
+import { API } from "../../config/app-constants";
 
 export const Subject = () => {
     const [nameValue, setNameValue] = useState("");
     const [teacher, setTeacher] = useState("");
     const [classes, setClasses] = useState("");
-    const [tags, setTags] = useState("");
     const [cycle, setCycle] = useState("");
-    useEffect(() => {
-        console.log(nameValue, tags);
-    });
-    const onClickAdd = () => {
-        console.log("Add running")
-        API_CLIENT.post("/login",
-            { userid: nameValue, tags: tags }
-        ).then(res => {
+    const [message, setMessage] = useState('');
+
+
+    const onClickAdd = async () => {
+        console.log("Add running");
+        const result = await API_CLIENT.post(API.SUBJECT.ADD, {
+            'name': nameValue,
+            'userid': Token.getToken(),
+            'classes': classes,
+            'teacher': teacher,
+            'cycle': cycle
+        }).then(res => {
             console.log(res.data);
         }).catch(err => {
             console.log(err);
         })
+        setMessage(result.data.message);
+        console.log(message);
+
     }
-    const onClickDelete = () => {
+    const onClickDelete = async () => {
 
         console.log("Delete running")
+        const result = await API_CLIENT.post(API.SUBJECT.DELETE, {
+            'name':  nameValue ,
+            'userid': Token.getToken(),
+            'classes':  classes ,
+            'teacher':  teacher ,
+            'cycle':  cycle 
+        })
+        setMessage(result.data.message);
+        console.log(message);
     }
 
 
 
     const parameters = [{ text: "name", type: "text", handler: setNameValue },
-    { text: "teacher", type: "text", handler: setTags },
-    { text: "class", type: "text", handler:setClasses},
-    { text: "tags", type: "text" ,handler:setTags},
-    { text: "cycle", type: "text",handler:setCycle }];//entries
+    { text: "teacher", type: "text", handler: setTeacher },
+    { text: "class", type: "text", handler: setClasses },
+    { text: "cycle", type: "text", handler: setCycle }];//entries
     return (<>
         <BasicPage
             name="Subject"
