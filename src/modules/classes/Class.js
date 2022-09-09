@@ -9,7 +9,6 @@ export const Class = () => {
     const [strValue, setStrValue] = useState("");
     const [message, setMessage] = useState("");
     const onClickAdd = async () => {
-        console.log("Add running");
         const result = await API_CLIENT.post(API.CLASS.ADD, {
             'name':  nameValue,
             'userid': Token.getToken(),
@@ -20,9 +19,7 @@ export const Class = () => {
         }).catch(err => {
             console.log(err);
         })
-        setMessage(result.data.message);
-        console.log(message);
-
+  
     }
     const onClickDelete = async () => {
 

@@ -32,7 +32,9 @@ export const Login = (props, { setToken }) => {
             'password': pwdValue.current
         }).then((res) => {
             setFlag(true);
-            Token.setToken(res.userid);
+            sessionStorage.setItem('token', res.data._id);
+
+            // Token.setToken(res.data._id);
             console.log(result.data.message);
             console.log(flag);
         }).catch((err) => {

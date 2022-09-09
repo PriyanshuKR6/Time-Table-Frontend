@@ -25,8 +25,6 @@ export const Room = () => {
         }).catch(err => {
             console.log(err);
         })
-        setMessage(result.data.message);
-        console.log(message);
 
     }
     const onClickDelete = async () => {

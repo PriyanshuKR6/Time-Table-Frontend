@@ -1,19 +1,19 @@
 export const API = {
     USER: {
-        LOGIN: "/users/login",
+        LOGIN: "/user/login",
         REGISTER: "/user/register"
     },
     CLASS: {
-        ADD: "/subject/add",
-        DELETE: "/subject/delete",
-        UPDATE: "/subject/update",
-        FIND: "/subject/find"
+        ADD: "/class/add",
+        DELETE: "/class/delete",
+        UPDATE: "/class/update",
+        FIND: "/class/find"
     },
     ROOM: {
-        ADD: "/subject/add",
-        DELETE: "/subject/delete",
-        UPDATE: "/subject/update",
-        FIND: "/subject/find"
+        ADD: "/room/add",
+        DELETE: "/room/delete",
+        UPDATE: "/room/update",
+        FIND: "/room/find"
     },
     SUBJECT: {
         ADD: "/subject/add",
@@ -22,10 +22,10 @@ export const API = {
         FIND: "/subject/find"
     },
     TEACHER: {
-        ADD: "/subject/add",
-        DELETE: "/subject/delete",
-        UPDATE: "/subject/update",
-        FIND: "/subject/find"
+        ADD: "/teacher/add",
+        DELETE: "/teacher/delete",
+        UPDATE: "/teacher/update",
+        FIND: "/teacher/find"
     }
 
 }
