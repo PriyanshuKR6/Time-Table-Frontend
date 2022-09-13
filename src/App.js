@@ -8,6 +8,7 @@ import { Class } from './modules/classes/Class';
 import { Subject } from './modules/subject/Subject';
 import { Teacher } from './modules/teacher/Teacher';
 import { Room } from './modules/rooms/Room';
+import { TimeTable } from './modules/timetable/TimeTable';
  
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
           <Route path="room" element={<Room />} />
           <Route path="teacher" element={<Teacher />} />
           <Route path="subject" element={<Subject />} />
-          <Route path="table" element={<DynamicTable />} />
+          <Route path="timetable" element={<TimeTable/>} />
         </Route>
+          <Route path="table" element={<DynamicTable />} />
       </Routes>
     </BrowserRouter>
 

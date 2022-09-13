@@ -39,6 +39,7 @@ export const Teacher = () => {
             entry={parameters}
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
+            
         />
     </>);
 

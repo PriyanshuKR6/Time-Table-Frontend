@@ -26,6 +26,9 @@ export const API = {
         DELETE: "/teacher/delete",
         UPDATE: "/teacher/update",
         FIND: "/teacher/find"
+    },
+    TIMETABLE: {
+        CREATE: "/timetable/create"
     }
 
 }

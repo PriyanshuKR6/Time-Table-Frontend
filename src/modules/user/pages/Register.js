@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
 import { API } from "../../../config/app-constants";
@@ -8,6 +8,9 @@ export const Register = () => {
     const pwdValue = useRef("")
     const emailValue = useRef("");
     const [state, setState] = useState("")
+    const [flag, setFlag] = useState(false);
+    const [message, setMessage] = useState('');
+
     const handleChange = (e) => {
         if (e.target.type === "text") {
             nameValue.current = e.target.value;
@@ -23,20 +26,26 @@ export const Register = () => {
                     setState(state + 1);
                 }
     }
-    const [message, setMessage] = useState('');
 
     const doRegister = async () => {
         console.log("Register Running");
         const result = await API_CLIENT.post(API.USER.REGISTER, {
-            'username': nameValue.current,
+            'userid': nameValue.current,
             'password': pwdValue.current
-        });
-        const navigate = useNavigate;
-        navigate('/dashboard');
-        setMessage(result.data.message);
-        console.log(message);
+        }).then((res) => {
+            setFlag(true);
+            sessionStorage.setItem('token', res.data._id);
+            console.log(result.data.message);
+            console.log(flag);
+        }).catch((err) => {
+            console.log(err);
+        })
+        // const navigate = useNavigate;
+
     }
     return (<>
+        {flag ? <Navigate to="/dashboard" replace /> : null}
+
         <div className="sign-up-container">
             <h2>Register</h2>
             <section className="sign-up">

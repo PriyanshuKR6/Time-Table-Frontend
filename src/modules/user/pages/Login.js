@@ -33,8 +33,6 @@ export const Login = (props, { setToken }) => {
         }).then((res) => {
             setFlag(true);
             sessionStorage.setItem('token', res.data._id);
-
-            // Token.setToken(res.data._id);
             console.log(result.data.message);
             console.log(flag);
         }).catch((err) => {

@@ -19,9 +19,13 @@ export const BasicPage = (props) => {
                             </span>
                         </div>)
                 })}
-                {/* <input type="submit" value="{props.functionality}" onClick={doLogin} /> */}
                 <button className="btn" onClick={props.onClickAdd}>Add</button>
-                <button className="btn" onClick={props.onClickDelete}>Delete</button>
+                {
+                    (props.renderBtnFlag) ?
+                        <button className="btn" onClick={props.onClickRender}>Show Table</button>
+                        :
+                        <button className="btn" onClick={props.onClickDelete}>Delete</button>
+                }
             </form>
         </div>
     </>)

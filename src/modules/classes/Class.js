@@ -41,6 +41,7 @@ export const Class = () => {
             entry={parameters}
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
+            
         />
     </>);
 }

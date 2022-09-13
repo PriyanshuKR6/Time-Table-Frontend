@@ -49,6 +49,7 @@ export const Room = () => {
             entry={parameters}
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
+            
         />
     </>);
 }

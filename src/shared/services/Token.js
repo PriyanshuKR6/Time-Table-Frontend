@@ -6,8 +6,8 @@ export const Token ={
       
        getToken() {
         const tokenString = sessionStorage.getItem('token');
-        const userToken = JSON.parse(tokenString);
-        return userToken;
+        // const userToken = JSON.parse(tokenString);
+        return tokenString;
       }
       
     }

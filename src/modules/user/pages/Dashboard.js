@@ -6,7 +6,7 @@ export const DashBoard = () => {
     { name: "Room", url: "/dashboard/room" },
     { name: "Teacher", url: "/dashboard/teacher" },
     { name: "Subject", url: "/dashboard/subject" },
-    { name: "Table", url: "/dashboard/table" }];
+    { name: "TimeTable", url: "/dashboard/timetable" }];
     return (
         <>
             <Navbar category={category} />

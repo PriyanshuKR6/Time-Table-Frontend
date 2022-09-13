@@ -1,39 +1,63 @@
 
-const data = [
-    { "fruit": "Apple", "cost": 100 },
-    { "fruit": "Orange", "cost": 50 },
-    { "fruit": "Banana", "cost": 35 },
-    { "fruit": "Mango", "cost": 70 },
-    { "fruit": "Pineapple", "cost": 45 },
-    { "fruit": "Papaya", "cost": 40 },
-    { "fruit": "Watermelon", "cost": 35 }
-]
 
-export const DynamicTable = () => {
-    const getKeys = () => {
-        return Object.keys(data[0]);
-    }
+export const DynamicTable = (props) => {
+    const data = props.data;
+    console.log(data);
+    // const getKeys = () => {
+    //     return Object.keys(data[0]);
+    // }
 
     const getHeader = () => {
-        const keys = getKeys();
-        return (<>
-            {keys.map((key, index) => {
+        // const keys = getKeys();
+        for (let i = 0; i < data.days.length; i++) {
+            return (<>
+                {/* {keys.map((key, index) => {
                 return <th key={key}>{key.toUpperCase()}</th>
+            })} */}
+                <th>{data.days[i].toUpperCase()}</th>
+            </>)
+        }
+    }
+    const getRowsData = () => {
+        return (<>
+            {/* for (let j = 0; j < data.periods; j++) { */}
+            {[...Array(data.periods)].map((z, j) => {
+                return (
+                    <tr>
+                        {[...Array(data.days.length)].map((x, i) => {
+                            return (
+                                [...Array(data.rooms.length)].map((y, k) => {
+                                    if (data.grid[i][j][k] !== -1) {
+                                        return (
+                                            <td>
+                                                data.subjects[grid[i][j][k]];
+                                                data.rooms[k];
+                                            </td>
+                                        )
+                                    }
+                                    return (<></>)
+                                }))
+                        })
+
+                        }</tr>)
             })}
-        </>)
+        </>);
     }
 
-    const getRowsData = () => {
-        const keys = getKeys();
-        return data.map((row, index) => {
-            return <tr key={index}><RenderRow key={index} data={row} keys={keys} /></tr>
-        })
-    }
-    const RenderRow = (props) => {
-        return props.keys.map((key, index) => {
-            return <td className="table-entry" key={props.data[key]}>{props.data[key]}</td>
-        })
-    }
+    // const RenderRow = () => {
+
+    // }
+    // const getRowsData = () => {
+    //     const keys = getKeys();
+    //     return data.map((row, index) => {
+    //         return <tr key={index}><RenderRow key={index} data={row} keys={keys} /></tr>
+    //     })
+    // }
+    // const RenderRow = (props) => {
+    //     return props.keys.map((key, index) => {
+    //         return <td className="table-entry" key={props.data[key]}>{props.data[key]}</td>
+    //     })
+    // }
     return (<>
         <table className="time-table">
             <thead>
