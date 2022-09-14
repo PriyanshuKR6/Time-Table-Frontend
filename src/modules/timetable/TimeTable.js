@@ -22,7 +22,6 @@ export const TimeTable = () => {
             'userid': Token.getToken(),
 
         }).then(res => {
-            console.log(res.data.result);
             setResult(res.data.result);
             setRenderFlag(true);
         }).catch(err => {
@@ -40,7 +39,8 @@ export const TimeTable = () => {
             onClickAdd={onClickAdd}
             onClickRender={onClickRender}
             renderBtnFlag={true}
+            
         />
-        {renderFlag && <DynamicTable data={result} />}
+        {renderFlag && <DynamicTable data={result} class = { } />} 
     </>);
 }
