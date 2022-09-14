@@ -7,18 +7,18 @@ import { DynamicTable } from "../../shared/widgets/DynamicTable";
 export const TimeTable = () => {
     const [periodValue, setPeriodValue] = useState("");
     const [daysValue, setDaysValue] = useState("");
+    const [classValue, setClassValue] = useState("");
     const [renderFlag, setRenderFlag] = useState(false);
     const [result, setResult] = useState({});
 
     const onClickAdd = async () => {
         console.log("Add running");
-
-
     }
     const onClickRender = async () => {
         const result = await API_CLIENT.post(API.TIMETABLE.CREATE, {
             'periods': periodValue,
             'days': daysValue.split(","),
+            'classs': classValue,
             'userid': Token.getToken(),
 
         }).then(res => {
@@ -27,20 +27,22 @@ export const TimeTable = () => {
         }).catch(err => {
             console.log(err);
         })
-    
+
     }
 
-    const parameters = [{ text: "periods", type: "number", handler: setPeriodValue },
-    { text: "days", type: "text", handler: setDaysValue }]                    //entries
+    const parameters = [
+        { text: "periods", type: "number", handler: setPeriodValue },
+        { text: "days", type: "text", handler: setDaysValue },
+        { text: "class", type: "text", handler: setClassValue }]  //entries
     return (<>
         <BasicPage
-            name="TimeTable"
+            name="Time-Table"
             entry={parameters}
             onClickAdd={onClickAdd}
             onClickRender={onClickRender}
-            renderBtnFlag={true}
-            
+            renderAddFlag={false}        // flag for conditinal rendering of add button
+            renderBtnFlag={true}         // flag for conditinal rendering between delete button & show button
         />
-        {renderFlag && <DynamicTable data={result} class = { } />} 
+        {renderFlag && <DynamicTable data={result} class={classValue} />}
     </>);
 }

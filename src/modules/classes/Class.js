@@ -40,8 +40,7 @@ export const Class = () => {
             name="Class"
             entry={parameters}
             onClickAdd={onClickAdd}
-            onClickDelete={onClickDelete}
-            
+            onClickDelete={onClickDelete}   
         />
     </>);
 }

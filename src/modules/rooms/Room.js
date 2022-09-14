@@ -7,7 +7,6 @@ import { Token } from "../../shared/services/Token";
 
 
 
-
 export const Room = () => {
     const [nameValue, setNameValue] = useState("");
     const [capValue, setCapValue] = useState("");
@@ -38,7 +37,6 @@ export const Room = () => {
         setMessage(result.data.message);
         console.log(message);
     }
-
 
 
     const parameters = [{ text: "name", type: "text", handler: setNameValue },

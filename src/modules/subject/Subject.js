@@ -44,7 +44,6 @@ export const Subject = () => {
     }
 
 
-
     const parameters = [{ text: "name", type: "text", handler: setNameValue },
     { text: "teacher", type: "text", handler: setTeacher },
     { text: "class", type: "text", handler: setClasses },
@@ -57,5 +56,4 @@ export const Subject = () => {
             onClickDelete={onClickDelete}
         />
     </>);
-
 }

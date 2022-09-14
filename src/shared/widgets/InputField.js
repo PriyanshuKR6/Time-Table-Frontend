@@ -7,9 +7,7 @@ export const InputField = (props) => {
                     <span><p>Name</p></span>
                     <span><input
                         type="text"
-                        // value={idValue.current}
                         placeholder="Enter Name"
-                        // onChange={handleChange}
                         required />
                     </span>
                 </div>
@@ -18,13 +16,10 @@ export const InputField = (props) => {
                     <span>
                         <input
                             type="number"
-                            // value={pwdValue.current}
                             placeholder="Enter Capacity"
-                            // onChange={handleChange}
                             required />
                     </span>
                 </div>
-                {/* <input type="submit" value="{props.functionality}" onClick={doLogin} /> */}
                 <input type="submit" value="Add" />
             </form>
         </div>

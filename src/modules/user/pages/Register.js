@@ -1,4 +1,4 @@
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
 import { API } from "../../../config/app-constants";
@@ -6,25 +6,19 @@ import { API } from "../../../config/app-constants";
 export const Register = () => {
     const nameValue = useRef("")
     const pwdValue = useRef("")
-    const emailValue = useRef("");
     const [state, setState] = useState("")
     const [flag, setFlag] = useState(false);
-    const [message, setMessage] = useState('');
 
     const handleChange = (e) => {
         if (e.target.type === "text") {
             nameValue.current = e.target.value;
             setState(state + 1);
-        } else
-            if (e.target.type === "email") {
-                emailValue.current = e.target.value;
+        }
+        else
+            if (e.target.type === "password") {
+                pwdValue.current = e.target.value;
                 setState(state + 1);
             }
-            else
-                if (e.target.type === "password") {
-                    pwdValue.current = e.target.value;
-                    setState(state + 1);
-                }
     }
 
     const doRegister = async () => {
@@ -40,7 +34,6 @@ export const Register = () => {
         }).catch((err) => {
             console.log(err);
         })
-        // const navigate = useNavigate;
 
     }
     return (<>

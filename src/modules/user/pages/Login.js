@@ -2,16 +2,12 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { API_CLIENT } from '../../../shared/services/api_client';
 import { API } from "../../../config/app-constants";
-import { Token } from "../../../shared/services/Token";
 
-
-export const Login = (props, { setToken }) => {
+export const Login = (props) => {
     const idValue = useRef("")
     const pwdValue = useRef("")
     const [state, setState] = useState("")
     const [flag, setFlag] = useState(false);
-    const [message, setMessage] = useState('');
-
 
 
     const handleChange = (e) => {

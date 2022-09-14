@@ -19,7 +19,12 @@ export const BasicPage = (props) => {
                             </span>
                         </div>)
                 })}
-                <button className="btn" onClick={props.onClickAdd}>Add</button>
+                {
+                    (props.renderAddFlag) ?
+                        <button className="btn" onClick={props.onClickAdd}>Add</button>
+                        :
+                        null
+                }
                 {
                     (props.renderBtnFlag) ?
                         <button className="btn" onClick={props.onClickRender}>Show Table</button>

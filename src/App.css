@@ -6,7 +6,7 @@ body {
   font-family: Verdana, sans-serif;
   margin: 15px 20px;
   padding: 10px;
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(215, 250, 255);
 }
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Login and Signup form container - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -16,7 +16,7 @@ body {
   padding: 20px 30px;
   margin-top: 25vh;
   margin-left: 20vw;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(164, 238, 255);
   width: 50vw;
   border: 1px solid grey;
   border-radius: 5px;
@@ -104,29 +104,6 @@ a:hover {
   background-color: rgb(235, 235, 235);
 }
 
-/*- - - - - - - - - - - - - - ADD BUTTON styling - - - - - - - - - - - - - - - - - - - - - */
-
-.add-btn {
-  margin-top: 10vh;
-  margin-left: 2vw;
-  width: 50%;
-  border: 0.2rem solid rgb(255, 255, 234);
-  box-shadow: 8px 6px 6px 6px rgb(255, 240, 199);
-  border-radius: 12px;
-  color: burlywood;
-}
-
-.add-btn:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.add-btn:active {
-  transform: translateY(6px);
-}
-
-.add-btn-text {
-  font-size: 1rem;
-}
 
 /*- - - - - - - - - - - - - - Main container - - - - - - - - - - - - - - - - - - */
 
@@ -155,8 +132,9 @@ a:hover {
   width: 30vw;
   height: 65vh;
   border: 2px solid grey;
+  background-color: rgb(164, 238, 255);
   border-radius: 12px;
-  box-shadow: 8px 6px 4px 4px darkgray;
+  box-shadow: 8px 6px 4px 4px rgb(222, 222, 222);
 }
 
 .input-field-form {
@@ -181,7 +159,7 @@ a:hover {
 .time-table {
   border: 1px solid grey;
   background-color: rgba(252, 239, 204, 0.493);
-  box-shadow: 8px 6px 4px 4px darkgray;
+  box-shadow: 8px 6px 4px 4px rgb(222, 222, 222);
   margin: 2rem;
   margin-left: 12rem;
   font-size: 1.1rem;
