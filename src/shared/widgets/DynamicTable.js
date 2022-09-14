@@ -22,7 +22,7 @@ export const DynamicTable = (props) => {
         let flag = false;
       for (let k = 0; k < data.rooms.length; k++) {
         if(data.grid[i][j][k] !== -1 ){
-        if (data.subjects[data.grid[i][j][k]].class === props.class.toUpperCase) {
+        if (data.subjects[data.grid[i][j][k]].class === props.class.toUpperCase()) {
           colm.push(
             <td className="table-entry" key={index++}>
               subject: {data.subjects[data.grid[i][j][k]].name}
