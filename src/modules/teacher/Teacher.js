@@ -37,6 +37,7 @@ export const Teacher = () => {
         <BasicPage
             name="Teacher"
             entry={parameters}
+            renderAddFlag={true} 
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
             

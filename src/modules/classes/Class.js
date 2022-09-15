@@ -39,6 +39,7 @@ export const Class = () => {
         <BasicPage
             name="Class"
             entry={parameters}
+            renderAddFlag={true} 
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}   
         />

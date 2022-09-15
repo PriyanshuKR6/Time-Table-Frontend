@@ -45,6 +45,7 @@ export const Room = () => {
         <BasicPage
             name="Room"
             entry={parameters}
+            renderAddFlag={true} 
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
             

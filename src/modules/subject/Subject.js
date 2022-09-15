@@ -52,6 +52,7 @@ export const Subject = () => {
         <BasicPage
             name="Subject"
             entry={parameters}
+            renderAddFlag={true} 
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
         />
