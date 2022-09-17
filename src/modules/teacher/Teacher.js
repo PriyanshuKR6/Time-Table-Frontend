@@ -1,11 +1,11 @@
 import { BasicPage } from "../utils/BasicPage";
 import { API_CLIENT } from "../../shared/services/api_client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { API } from "../../config/app-constants";
 import { Token } from "../../shared/services/Token";
 
 export const Teacher = () => {
-    const nameValue = useRef("");
+    const [nameValue, setNameValue] = useState("");
     const [message, setMessage] = useState('');
 
     const onClickAdd = async () => {
@@ -16,11 +16,11 @@ export const Teacher = () => {
 
         }).then(res => {
             console.log(res.data);
+            setMessage(result.data.message);
+            console.log(message);
         }).catch(err => {
             console.log(err);
         })
-        setMessage(result.data.message);
-        console.log(message);
     }
     const onClickDelete = async () => {
         console.log("Delete running");
@@ -32,7 +32,7 @@ export const Teacher = () => {
         console.log(message);
     }
 
-    const parameters = [{ text: "name", type: "text", value: { nameValue } }];//entries
+    const parameters = [{ text: "name", type: "text", handler:setNameValue }];//entries
     return (<>
         <BasicPage
             name="Teacher"

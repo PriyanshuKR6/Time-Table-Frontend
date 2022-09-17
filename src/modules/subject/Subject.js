@@ -1,7 +1,7 @@
 import { BasicPage } from "../utils/BasicPage";
 import { API_CLIENT } from "../../shared/services/api_client";
 import { Token } from '../../shared/services/Token'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { API } from "../../config/app-constants";
 
 export const Subject = () => {
@@ -17,13 +17,9 @@ export const Subject = () => {
         const result = await API_CLIENT.post(API.SUBJECT.ADD, {
             'name': nameValue,
             'userid': Token.getToken(),
-            'classes': classes,
+            'class': classes,
             'teacher': teacher,
             'cycle': cycle
-        }).then(res => {
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err);
         })
         setMessage(result.data.message);
         console.log(message);
@@ -33,11 +29,11 @@ export const Subject = () => {
 
         console.log("Delete running")
         const result = await API_CLIENT.post(API.SUBJECT.DELETE, {
-            'name':  nameValue ,
+            'name': nameValue,
             'userid': Token.getToken(),
-            'classes':  classes ,
-            'teacher':  teacher ,
-            'cycle':  cycle 
+            'class': classes,
+            'teacher': teacher,
+            'cycle': cycle
         })
         setMessage(result.data.message);
         console.log(message);
@@ -52,7 +48,7 @@ export const Subject = () => {
         <BasicPage
             name="Subject"
             entry={parameters}
-            renderAddFlag={true} 
+            renderAddFlag={true}
             onClickAdd={onClickAdd}
             onClickDelete={onClickDelete}
         />
